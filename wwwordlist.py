@@ -25,9 +25,9 @@ else:
         #print(html)
         for i,line in enumerate(req_data.iter_lines()):
             decoded = line.decode("utf-8")
-            line_scrubbed = re.sub(r"<[^>]+>","",decoded)
-            line_scrubbed = re.sub(r"^\s+","",line_scrubbed)
-            line_scrubbed = re.sub(r"[^A-Za-z0-9_ ]","",line_scrubbed)
+            line_scrubbed = re.sub(r"<[^>]+>","",decoded) # Delete out all HTML tags
+            line_scrubbed = re.sub(r"^\s+","",line_scrubbed) # Remove all prepended white space
+            line_scrubbed = re.sub(r"[^A-Za-z0-9_- ]","",line_scrubbed) # Remove Evrything that is not a word character ("_-" is okay)
             line_array = line_scrubbed.split()
             for line_item in line_array:
                 if not re.match(r"^$",line_item) and len(line_item)!=1 and line_item not in unique_words: # remove blank lines and such
