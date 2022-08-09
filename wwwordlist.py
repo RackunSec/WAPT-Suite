@@ -27,11 +27,24 @@ else:
             decoded = line.decode("utf-8")
             line_scrubbed = re.sub(r"<[^>]+>","",decoded) # Delete out all HTML tags
             line_scrubbed = re.sub(r"^\s+","",line_scrubbed) # Remove all prepended white space
-            line_scrubbed = re.sub(r"[^A-Za-z0-9_ /-]","",line_scrubbed) # Remove Evrything that is not a word character ("_-" is okay)
-            line_array = line_scrubbed.split()
-            for line_item in line_array:
-                if not re.match(r"^$",line_item) and len(line_item)!=1 and line_item not in unique_words: # remove blank lines and such
-                    unique_words.append(line_item)
+            line_scrubbed = re.sub(r"&[a-z]+;"," ",line_scrubbed) # remove &nbsp; etc
+            line_scrubbed = re.sub(r"[^A-Za-z0-9_\s/-]","",line_scrubbed) # Remove Evrything that is not a word character ("_-" is okay)
+            if "/" in line_scrubbed:
+                line_array = line_scrubbed.split("/")
+                for line_item in line_array:
+                    if " " in line_item: # the line had a forward slash AND a space:
+                        line_item2 = line_item.split()
+                        for word2 in line_item2:
+                            if not re.match(r"^$",word2) and len(word2)!=1 and word2 not in unique_words: # remove blank lines and such
+                                unique_words.append(word2)
+                    else:
+                        if not re.match(r"^$",line_item) and len(line_item)!=1 and line_item not in unique_words: # remove blank lines and such
+                            unique_words.append(line_item)
+            else:
+                line_array = line_scrubbed.split() # split by whitespace
+                for line_item in line_array:
+                    if not re.match(r"^$",line_item) and len(line_item)!=1 and line_item not in unique_words: # remove blank lines and such
+                        unique_words.append(line_item)
         unique_words.sort()
         for word in unique_words:
             print(word)
