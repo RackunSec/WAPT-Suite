@@ -6,3 +6,6 @@
 python3 wwwordlist.py (URI) | tess file.txt
 ```
 Of course `tee` is optional. Do what you wish with the output.
+
+## TODO
+Simply ignore certain tags as an option, though I noticed that JS and CSS does have some good words to use for file / folder enum.
