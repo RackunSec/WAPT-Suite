@@ -1,2 +1,8 @@
 # wwwordlist
-wwwordlist Creates a Unique Word List of a Web Page
+`wwwordlist` Creates a Unique Word List of a Web Page. This application is rather naive atm. I just whipped this up because I was having Gem dependency issues with [CeWL](https://github.com/digininja/CeWL)
+
+## Usage
+```bash
+python3 wwwordlist.py (URI) | tess file.txt
+```
+Of course `tee` is optional. Do what you wish with the output.
