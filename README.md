@@ -1,11 +1,9 @@
-# wwwordlist
-`wwwordlist` Creates a Unique Word List of a Web Page. This application is rather naive atm. I just whipped this up because I was having Gem dependency issues with [CeWL](https://github.com/digininja/CeWL)
+# PyTest-Web
+This is a collection of tools that I use during penetration tests. A lot of these exist elsewhere and I mainly made this repository as an exercise. 
+## Tools
+A full list of tools
+### Enumeration
+ * http-shs - HTTP security headers checks
 
-## USAGE
-```bash
-python3 wwwordlist.py (URI) | tess file.txt
-```
-Of course `tee` is optional. Do what you wish with the output.
-
-## TODO
-Simply ignore certain tags as an option, though I noticed that JS and CSS does have some good words to use for file / folder enum.
+### Miscellaneous
+ * wwwordlist - scrapes a page and generates a word list 
