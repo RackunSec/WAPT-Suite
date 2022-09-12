@@ -9,26 +9,12 @@ import time # timestamp
 import re # Regexp
 
 def usage():
-    print("Usage: python3 pyhttpenum.py (URL|File of URLs)")
+    print("Usage: python3 pyhttpenum.py (URL|File of URLs) (Output File (csv))")
     exit()
 
-# Create Log file:
-def create_log_file(csvoutput):
-    # Create log file directory:
-    if not os.path.exists("./log-pyhttpenum"):
-        try:
-            os.mkdir("./log-pyhttpenum")
-            print(f"printing to CSV log file: {csvoutput}")
-            with open(csvoutput,"a") as csvfile:
-                csvfile.write("URL,Response_Code,Server,X-Powered-By,Length,Redirect,Comment\n")
-        except:
-            print("[!] Could not write to current directory.")
-            sys.exit(1)
-    return
-
 # Write Data to a Log File:
-def write_log(csvoutput,data): # Write data to a file
-    with open(csvoutput,"a") as csvfile:
+def write_log(output_file,data): # Write data to a file
+    with open(output_file,"a") as csvfile:
         csvfile.write(data)
 
 # Build the log string from the response object:
@@ -57,15 +43,12 @@ def log_string(response,url):
     return f"{url},{response.status_code},{server},{xpower},{length},{redirect},{comment}\n"
 
 def main():
-    if len(sys.argv)!=2:
+    if len(sys.argv)!=3:
         usage()
     else:
-        input_file = sys.argv[1]
+        output_file = sys.argv[2] # Output File name
+        input_file = sys.argv[1] # Input file name
         if os.path.exists(input_file): # This is a file, use it
-            csvoutput = datetime.datetime.now()
-            csvoutput = "log-pyhttpenum/pyhttpenum-log-" + str(time.mktime(csvoutput.timetuple()) * 1000) + ".csv"
-            create_log_file(csvoutput)
-
             with open(input_file) as file:
                 hosts = file.readlines() # read in all lines into array
                 hosts = [host.rstrip() for host in hosts] # remove newlines
@@ -75,13 +58,13 @@ def main():
                 print(f"[i] Requesting {url}")
                 try: # Make our HTTP Request
                     response = requests.get(url, timeout=5)
-                    write_log(csvoutput,log_string(response,url))
+                    write_log(output_file,log_string(response,url))
                 except Exception as e:
                     # TODO ADD MORE CHECKS HERE FOR COMMENT FIELD
                     if "SSLError" in repr(e):
                         try:
                             response = requests.get(url, verify=False,timeout=5)
-                            write_log(csvoutput,log_string(response,url))
+                            write_log(output_file,log_string(response,url))
                         except Exception as e:
                             print(f"[!] SSLError for {url} {e}")
                     else:
