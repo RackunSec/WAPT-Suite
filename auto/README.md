@@ -1,5 +1,18 @@
 # AutoWeb
 This tool was designed to automate the first day of a web application penetration test.
+```
+     ▄▄▄       █    ██ ▄▄▄█████▓ ▒█████   █     █░▓█████  ▄▄▄▄
+    ▒████▄     ██  ▓██▒▓  ██▒ ▓▒▒██▒  ██▒▓█░ █ ░█░▓█   ▀ ▓█████▄
+    ▒██  ▀█▄  ▓██  ▒██░▒ ▓██░ ▒░▒██░  ██▒▒█░ █ ░█ ▒███   ▒██▒ ▄██
+    ░██▄▄▄▄██ ▓▓█  ░██░░ ▓██▓ ░ ▒██   ██░░█░ █ ░█ ▒▓█  ▄ ▒██░█▀
+     ▓█   ▓██▒▒▒█████▓   ▒██▒ ░ ░ ████▓▒░░░██▒██▓ ░▒████▒░▓█  ▀█▓
+     ▒▒   ▓▒█░░▒▓▒ ▒ ▒   ▒ ░░   ░ ▒░▒░▒░ ░ ▓░▒ ▒  ░░ ▒░ ░░▒▓███▀▒
+      ▒   ▒▒ ░░░▒░ ░ ░     ░      ░ ▒ ▒░   ▒ ░ ░   ░ ░  ░▒░▒   ░
+      ░   ▒    ░░░ ░ ░   ░      ░ ░ ░ ▒    ░   ░     ░    ░    ░
+          ░  ░   ░                  ░ ░      ░       ░  ░ ░
+                                                               ░
+        AutoWeb - "Automate The First Day." \n""")
+```
 ## Setup
 Ensure that the Config_AutoWeb.ini file is updated with paths to tools
 ## Usage
