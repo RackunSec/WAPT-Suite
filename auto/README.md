@@ -11,7 +11,7 @@ This tool was designed to automate the first day of a web application penetratio
       ░   ▒    ░░░ ░ ░   ░      ░ ░ ░ ▒    ░   ░     ░    ░    ░
           ░  ░   ░                  ░ ░      ░       ░  ░ ░
                                                                ░
-        AutoWeb - "Automate The First Day." \n""")
+        AutoWeb - "Automate The First Day." 
 ```
 ## Setup
 Ensure that the Config_AutoWeb.ini file is updated with paths to tools
