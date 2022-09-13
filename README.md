@@ -3,11 +3,12 @@ This is a collection of tools that I use during penetration tests. A lot of thes
 ## Tools
 A full list of tools
 ### Enumeration
- * [http-shs](enum/http-heaedrs/README.md) - HTTP security headers checks
+ * [http-shs](enum/http-headers/README.md) - HTTP security headers checks
  * [web-comment-scrape](enum/comments/README.md) - Scrapes a page for HTML and JS comments
  * [http-scan](enum/http-scan/README.md) - Makes HTTP requests from targets file and logs responses
  * [site-map-enum](enum/site-maps/README.md) - Enumeration of site maps identified during web application tests
  * [ssl-tls](enum/ssl-tls/README.md) - This was just an exercise with Python for me - use SSLScan for this type of testing
+ * [AutoWeb](auto/) - Automate the first day of web application penetration test
 
 ### Miscellaneous
  * [wwwordlist](misc/wordlists/README.md) - scrapes a page and generates a word list 
