@@ -8,6 +8,7 @@ A full list of tools
  * [http-scan](enum/http-scan/) - Makes HTTP requests from targets file and logs responses
  * [site-map-enum](enum/site-maps/) - Enumeration of site maps identified during web application tests
  * [ssl-tls](enum/ssl-tls/) - This was just an exercise with Python for me - use SSLScan for this type of testing
+ * [TimedUserEnum](enum/username/) - A WIP, PoC for analyzing timed server responses for valid/invalid usernames of web apps
  
 ### Vuln Scanning 
  * [AutoWeb](auto/) - Automate the first day of web application penetration test
