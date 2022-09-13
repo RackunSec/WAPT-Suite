@@ -21,4 +21,4 @@ Ensure that the Config_AutoWeb.ini file is updated with paths to tools
 ```bash
 python3 AutoWeb.py (URLS FILE)
 ```
- 3. This will generate a new directory in the current directory `./pentest/auto_web/(DOMAIN NAME)/`
+ 3. This will generate a new directory in the current directory `./pentest/auto_web/(DOMAIN NAME)/`. All log files will be located in this new directory.
