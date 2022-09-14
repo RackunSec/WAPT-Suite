@@ -14,4 +14,4 @@ A full list of tools
  * [AutoWeb](auto/) - Automate the first day of web application penetration test
 
 ### Miscellaneous
- * [wwwordlist](misc/wordlists/README.md) - scrapes a page and generates a word list 
+ * [wwwordlist](misc/wordlists/) - scrapes a page and generates a word list 
