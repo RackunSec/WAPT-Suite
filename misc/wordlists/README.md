@@ -3,7 +3,7 @@
 
 ## USAGE
 ```bash
-python3 wwwordlist.py (URI) | tess file.txt
+python3 wwwordlist.py (URI) | tee file.txt
 ```
 Of course `tee` is optional. Do what you wish with the output.
 
