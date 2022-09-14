@@ -12,6 +12,7 @@ A full list of tools
  
 ### Vuln Scanning 
  * [AutoWeb](auto/) - Automate the first day of web application penetration test
+ * [pyCORSchk](enum/cors/) - CHeck for CORS-related security issues
 
 ### Miscellaneous
  * [wwwordlist](misc/wordlists/) - scrapes a page and generates a word list 
