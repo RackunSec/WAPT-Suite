@@ -27,6 +27,8 @@ def say_msg(msg):
 
 def usage(err):
     print(f"[!] Error: {err}")
+    print("Usage: python3 AutoWeb.py (LIST OF URIs)")
+    sys.exit()
 
 def err(fatal_msg):
     print(f"[!] Fatal: {fatal_msg}")
