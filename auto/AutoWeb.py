@@ -90,6 +90,14 @@ def run_cmd(cmd,log_path,url,cur_dir):
         cmd = subprocess.Popen(cmd_full,shell=True)
         cmd.wait()
         os.chdir(cur_dir) # Go back.
+    ## pyCORSchk:
+    elif cmd == "pyCORSchk":
+        py_web_tools_path = read_config(cur_dir+"/Config_AutoWeb.ini","PATHS","PY_WEB_TOOLS")
+        os.chdir(py_web_tools_path+"/enum/cors")
+        cmd_full = f"python3 pyCORSchk.py {url} > {log_path}cors.txt"
+        cmd = subprocess.Popen(cmd_full,shell=True)
+        cmd.wait()
+        os.chdir(cur_dir) # Go back.
     ## Byp4xx.py:
     elif cmd == "byp4xx":
         byp4xx_path = read_config(cur_dir+"/Config_AutoWeb.ini","PATHS","BYP4XX")
@@ -176,6 +184,8 @@ def main():
                     run_cmd("byp4xx",log_dir,url,cur_dir) # TODO get rid of log_dir
                     say_msg("Starting WWWordlist ... ")
                     run_cmd("wwwordlist",log_dir,url,cur_dir) # TODO get rid of log_dir
+                    say_msg("Starting pyCORSchk ... ")
+                    run_cmd("pyCORSchk",log_dir,url,cur_dir)
                     say_msg("AutoWeb scan completed.")
     else:
         usage("Missing arguments")
