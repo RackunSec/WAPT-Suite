@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 ## Autoweb.py - Automate the first day.
 ## 2022 @RackunSec
+##
+##
 import sys # for arguments
 import os # for file stuff
 import re # regexp stuff
@@ -77,6 +79,14 @@ def run_cmd(cmd,log_path,url,cur_dir):
         os.chdir(py_web_tools_path+"/enum/http-scan")
         target_file = f"{log_path}target_url.txt"
         cmd_full = f"python3 pyhttpenum.py {target_file} {log_path}http-scan.txt"
+        cmd = subprocess.Popen(cmd_full,shell=True)
+        cmd.wait()
+        os.chdir(cur_dir) # Go back.
+    ## WWWordlist:
+    elif cmd == "wwwordlist":
+        py_web_tools_path = read_config(cur_dir+"/Config_AutoWeb.ini","PATHS","PY_WEB_TOOLS")
+        os.chdir(py_web_tools_path+"/misc/wordlists")
+        cmd_full = f"python3 wwwordlist.py {url} > {log_path}wwwordlist.txt"
         cmd = subprocess.Popen(cmd_full,shell=True)
         cmd.wait()
         os.chdir(cur_dir) # Go back.
@@ -164,6 +174,8 @@ def main():
                     run_cmd("http-scan",log_dir,url,cur_dir)
                     say_msg("Starting Byp4xx.py ... ")
                     run_cmd("byp4xx",log_dir,url,cur_dir) # TODO get rid of log_dir
+                    say_msg("Starting WWWordlist ... ")
+                    run_cmd("wwwordlist",log_dir,url,cur_dir) # TODO get rid of log_dir
                     say_msg("AutoWeb scan completed.")
     else:
         usage("Missing arguments")
