@@ -1,4 +1,4 @@
-# PyTest-Web
+# Py-Web-Tools Suite
 This is a collection of tools that I use during penetration tests. A lot of these exist elsewhere and I mainly made this repository as an exercise. 
 ## Tools
 A full list of tools
