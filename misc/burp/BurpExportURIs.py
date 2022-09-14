@@ -30,7 +30,7 @@ def main(): ## Are we running as a script?
                   if re.search(r'<url><!.CDATA.http',line): ## We have a URI:
                       uri = re.sub(r'^.*(http[^\]]+).*',r'\1',line).strip()
                       if truncate: ## truncate it
-                         uri = re.sub(r'^https?...[^/]+','',uri) ## sed -r 's/^https?...[^/]+\//\//g'
+                         uri = re.sub(r'^https?...[^/]+/','',uri) ## sed -r 's/^https?...[^/]+\//\//g'
                       if uri not in unique_uris:
                           unique_uris.append(uri)
               for uri in unique_uris:
