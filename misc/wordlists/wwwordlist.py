@@ -20,7 +20,10 @@ class Wwwordlist():
         sys.exit()
 
     def word_check(self,word): ## Check word to make sure it's a word:
-        if re.match(r'^[^A-Za-z0-9]+$',word) or re.match(r'^$',word) or len(word)<=1:
+        if "/" in word or ":" in word:
+            self.delim_line_splitter(word)
+            return
+        if re.match(r'^[^A-Za-z0-9]+$',word) or re.match(r'^$',word) or len(word)<=1 or re.match(r'^\s*https://[^ ]+$',word) or re.search('[^\x00-\x7F]+',word):
             ## Things like "..." or "&..;", blank lines, etc
             return False
         else:
@@ -40,50 +43,83 @@ class Wwwordlist():
         try:
             response_data = requests.get(uri,headers=headers,verify=False)  ## Make the HTTP request and get the data
             self.generate_wordlist(response_data) ## generate the word list from this.
-        except:
-            print(f"[!] Could not access {uri}")
+        except Exception as e:
+            print(f"[!] Could not access {uri}: {e}")
             sys.exit()
 
-    def generate_wordlist(self,response_data): ## generate and print the actual wordlist
-            for i,line in enumerate(response_data.iter_lines()):
-                decoded = line.decode("utf-8")
-                if re.search(r'<[^=>]+="',decoded): ## We have attributes we can pull out:
-                     attribs = decoded.split("=")
-                     for attrib in attribs:
-                         if re.search(r'"[^"]+"',attrib):
-                             attrib_clean = re.sub(r'^[^"]*"([^"]+)".*',r'\1',attrib)
-                             if attrib_clean not in self.unique_attribs_list:
-                                 if self.word_check(attrib_clean):
-                                     self.unique_attribs_list.append(attrib_clean)
-                line_scrubbed = re.sub(r"<[^>]+>","",decoded) # Delete out all HTML tags
-                line_scrubbed = re.sub(r"^\s+","",line_scrubbed) # Remove all prepended white space
-                line_scrubbed = re.sub(r"&[a-z]+;"," ",line_scrubbed) # remove &nbsp; etc
-                line_scrubbed = re.sub(r"[^A-Za-z0-9._\s/-]","",line_scrubbed) # Remove Evrything that is not a word character ("_-" is okay)
-                if line_scrubbed == "": ## Remove lines that are blank
-                    continue
-                if "/" in line_scrubbed:
-                    line_array = line_scrubbed.split("/")
-                    for line_item in line_array:
-                        if " " in line_item: # the line had a forward slash AND a space:
-                            line_item2 = line_item.split()
-                            for word2 in line_item2:
-                                if word2 not in self.unique_words: # remove blank lines and such
-                                    if self.word_check(word2):
-                                        self.unique_words.append(word2)
-                        else:
-                            if len(line_item)!=1 and line_item not in self.unique_words: # remove blank lines and such
-                                if self.word_check(line_item):
-                                    self.unique_words.append(line_item)
+    def scrub_dom_line(self,line): ## Scrub the DOM line of crap that shouldn't be in a wordlist
+        line_scrubbed = re.sub(r"<[^>]+(>|$)","",line) # Delete out all HTML tags
+        line_scrubbed = re.sub(r"(^\s+|^\s+$)","",line_scrubbed) # Remove all prepended and appended whitespace
+        line_scrubbed = re.sub(r"&[a-z]+;"," ",line_scrubbed) # remove &nbsp; etc
+        line_scrubbed = re.sub(r"[^A-Za-z0-9._/ -]","",line_scrubbed) # Remove Everything that is not a word character ("_-" is okay)
+        return line_scrubbed
+
+    def delim_line_splitter(self,line):
+        if "/" in line: ## This could include URIs, but self.word_check() will remove them.
+            line_array = line.split("/")
+            for line_item in line_array:
+                if " " in line_item: # the line had a forward slash AND a space:
+                    line_item2 = line_item.split()
+                    for word2 in line_item2:
+                        if word2 not in self.unique_words: # remove blank lines and such
+                            if self.word_check(word2):
+                                self.unique_words.append(word2)
                 else:
-                    line_array = line_scrubbed.split() # split by whitespace
-                    for line_item in line_array:
-                        if line_item not in self.unique_words: # remove blank lines and such
-                            if self.word_check(line_item):
-                                self.unique_words.append(line_item)
-            self.unique_words = self.unique_words + self.unique_attribs_list ## Combine the lists
-            self.unique_words.sort() ## Sort the list
-            for word in self.unique_words:
-                print(word)
+                    if len(line_item)!=1 and line_item not in self.unique_words: # remove blank lines and such
+                        if self.word_check(line_item):
+                            self.unique_words.append(line_item)
+        if ":" in line: ## Colons are not being scrubbed using re.sub() in self.scrub_dom_line() ?
+            line_array = line.split(":")
+            for line_item in line_array:
+                if " " in line_item: # the line had a forward slash AND a space:
+                    line_item2 = line_item.split()
+                    for word2 in line_item2:
+                        if word2 not in self.unique_words: # remove blank lines and such
+                            if self.word_check(word2):
+                                self.unique_words.append(word2)
+                else:
+                    if len(line_item)!=1 and line_item not in self.unique_words: # remove blank lines and such
+                        if self.word_check(line_item):
+                            self.unique_words.append(line_item)
+        if re.search(r'\[[^]]+\]',line): ## Square brackets:
+            data = re.sub(r'[^[]*\[([^\]]+)\].*',r'\1',line)
+            if self.word_check(data):
+                self.unique_words.append(data)
+
+    def generate_wordlist(self,response_data): ## generate and print the actual wordlist
+        for i,line in enumerate(response_data.iter_lines()):
+            try:
+                decoded = line.decode("utf-8")
+            except Exception as e: ## Non ASCII bytes found.
+                continue
+            if re.search(r'<[^=>]+="',decoded): ## We have attributes we can pull out:
+                attribs = decoded.split("=") ## Split the line up
+                for attrib in attribs: ## Look at each side of the equation:
+                    if re.search(r'"[^"]+"',attrib):
+                        attrib_clean = re.sub(r'^[^"]*"([^"]+)".*',r'\1',attrib)
+                        if attrib_clean not in self.unique_attribs_list:
+                            if self.word_check(attrib_clean):
+                                self.unique_attribs_list.append(attrib_clean)
+                ## Done:
+                continue ## We can continue now that we pulled out the attributes
+
+            if decoded == "":
+                continue
+            line_scrubbed = self.scrub_dom_line(decoded)
+            if line_scrubbed == "":
+                continue ## skip blank lines and URLs/URIs
+            else:
+                line_array = line_scrubbed.split() # split by whitespace
+                for line_item in line_array:
+                    if line_item not in self.unique_words: # remove blank lines and such
+                        if self.word_check(line_item):
+                            self.unique_words.append(line_item)
+
+        self.unique_words = self.unique_words + self.unique_attribs_list ## Combine the lists
+        self.unique_words.sort() ## Sort the list
+        for word in self.unique_words:
+            print(word)
+            #pass
 
 def main():
     wwwordlist = Wwwordlist() ## instantiate the object from the class above
