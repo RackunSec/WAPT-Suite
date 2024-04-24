@@ -17,6 +17,7 @@ Below is a summary of some of the included tools and documentation
 ### Miscellaneous
  * [UA-Util](misc/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
  * [Dredgeon](misc/entropy) - Dredges through a file looking for potential web-related sensitive information.
+ * [BurpExportURIs](misc/burp) - Extract URIs from Burp Suite's project files.
 
 ### Wordlists
 This is a set of wordlists that I have generated over the years of web application penetration testing.
