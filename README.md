@@ -17,3 +17,7 @@ Below is a summary of some of the included tools and documentation
 ### Miscellaneous
  * [WWWordlist](misc/wordlists/) - This tool scrapes a page and generates a word list
  * [UA-Util](misc/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
+
+### Wordlists
+This is a set of wordlists that I have generated over the years of web application penetration testing.
+ * [Wordlists](wordlists/) - Collection of all wordlists
