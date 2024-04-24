@@ -3,11 +3,11 @@ This is a collection of tools that I use during penetration tests. A lot of thes
 ## Tools
 A full list of tools
 ### Enumeration
- * [http-shs](enum/http-headers/) - HTTP security headers checks
- * [web-comment-scrape](enum/comments/) - Scrapes a page for HTML and JS comments
- * [http-scan](enum/http-scan/) - Makes HTTP requests from targets file and logs responses
- * [site-map-enum](enum/site-maps/) - Enumeration of site maps identified during web application tests
- * [ssl-tls](enum/ssl-tls/) - This was just an exercise with Python for me - use SSLScan for this type of testing
+ * [HTTP-SHC](enum/http-headers/) - HTTP security headers checks
+ * [Web-Comment-Scrape](enum/comments/) - Scrapes a page for HTML and JS comments
+ * [HTTP-Scan](enum/http-scan/) - Makes HTTP requests from targets file and logs responses
+ * [Site-Map-Enum](enum/site-maps/) - Enumeration of site maps identified during web application tests
+ * [SSL-TLS](enum/ssl-tls/) - This was just an exercise with Python for me - use SSLScan for this type of testing
  * [TimedUserEnum](enum/username/) - A WIP, PoC for analyzing timed server responses for valid/invalid usernames of web apps
  
 ### Vuln Scanning 
@@ -15,5 +15,5 @@ A full list of tools
  * [pyCORSchk](enum/cors/) - CHeck for CORS-related security issues
 
 ### Miscellaneous
- * [wwwordlist](misc/wordlists/) - This tool scrapes a page and generates a word list
- * [UA-util](misc/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
+ * [WWWordlist](misc/wordlists/) - This tool scrapes a page and generates a word list
+ * [UA-Util](misc/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
