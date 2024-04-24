@@ -11,7 +11,7 @@ import statistics ## stats for times
 ## Display usage of app:
 def usage():
     print("\nUsage:\n\t1. Find where credentials post to.")
-    print("\t2. Identify the username and password paramater names in the HTML form.")
+    print("\t2. Identify the username and password parameter names in the HTML form.")
     print("\t3. Run command:\n\npython3 TimedUserEnum.py (WORDLIST) (USERNAME PARAM) (PASSWORD PARAM) (POST URL)\n")
     sys.exit(1)
 ## Banner:
