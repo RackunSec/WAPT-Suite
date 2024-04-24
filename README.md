@@ -15,4 +15,5 @@ A full list of tools
  * [pyCORSchk](enum/cors/) - CHeck for CORS-related security issues
 
 ### Miscellaneous
- * [wwwordlist](misc/wordlists/) - scrapes a page and generates a word list 
+ * [wwwordlist](misc/wordlists/) - This tool scrapes a page and generates a word list
+ * [ua-util](misc/ua-util.py) - User Agent Utility (randomizing for evasion, etc)
