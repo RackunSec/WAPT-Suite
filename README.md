@@ -12,7 +12,7 @@ Below is a summary of some of the included tools and documentation
  
 ### Vuln Scanning 
  * [AutoWeb](auto/) - Automate the first day of web application penetration test
- * [pyCORSchk](enum/cors/) - CHeck for CORS-related security issues
+ * [pyCORSchk](enum/cors/) - This tool checks for CORS-related security issues
 
 ### Miscellaneous
  * [UA-Util](misc/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
