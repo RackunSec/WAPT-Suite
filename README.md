@@ -1,7 +1,7 @@
-# Py-Web-Tools Suite
-This is a collection of tools that I use during penetration tests. A lot of these exist elsewhere and I mainly made this repository as an exercise. 
-## Tools
-A full list of tools
+# WAPT Suite
+This is a collection of tools that I use during web application penetration tests. A lot of these exist elsewhere and I mainly made this repository as an exercise and I use it in most of my engagements. 
+## What's Included
+Below is a summary of some of the included tools and documentation
 ### Enumeration
  * [HTTP-SHC](enum/http-headers/) - HTTP security headers checks
  * [Web-Comment-Scrape](enum/comments/) - Scrapes a page for HTML and JS comments
