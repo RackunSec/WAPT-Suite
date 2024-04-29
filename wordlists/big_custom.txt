@@ -1927,6 +1927,16 @@ aponline
 apotheken
 _app
 app
+appsettings.json
+appsettings.dev.json
+appsettings.prod.json
+appsettings.stage.json
+appsettings.staging.json
+appsettings.test.json
+appsettings.testing.json
+appsettings.qa.json
+appsettings.intra.json
+appsettings.internal.json
 app_
 app_admin
 appadmin
