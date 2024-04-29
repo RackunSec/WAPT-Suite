@@ -7947,6 +7947,8 @@ framed
 frames
 frameset
 frametest
+_framework
+_framework/blazor.boot.json
 framework
 Framework
 FrameWork
