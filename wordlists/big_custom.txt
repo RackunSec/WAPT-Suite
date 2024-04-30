@@ -8363,6 +8363,17 @@ gestor
 gestutente
 gesundheit
 get
+getTitle
+getTrack
+getWork
+getAccess
+getWorks
+getAgree
+getAgreement
+renderAgreement
+renderFile
+downloadAgreement
+getPDF
 getaccess
 Get_Account
 Get_Accounts
