@@ -9,6 +9,7 @@ Below is a summary of some of the included tools and documentation
  * [Site-Map-Enum](Enumeration/site-maps/) - Enumeration of site maps identified during web application tests
  * [SSL-TLS](Enumeration/ssl-tls/) - This was just an exercise with Python for me - use SSLScan for this type of testing
  * [TimedUserEnum](Enumeration/username/) - A WIP, PoC for analyzing timed server responses for valid/invalid usernames of web apps
+ * [W3Fuzz](Enumeration/w3fuzz/) - Super lightweight directory and file brute force tool
 
 ### Vuln Scanning 
  * [AutoWeb](Automation/) - Automate the first day of web application penetration test
