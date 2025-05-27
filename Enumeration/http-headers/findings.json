@@ -1,0 +1,85 @@
+{
+        "Strict-Transport-Security": {
+            "alias":"HTTP Strict Transport Security Policy",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security","https://portswigger.net/kb/issues/01000300_strict-transport-security-not-enforced"],
+            "desc":"Scanner discovered that the affected application is using HTTPS however does not use the HSTS header.",
+            "directives":["max-age","includeSubDomains","preload"],
+            "risk":"med",
+            "crit_directives":[],
+            "recommendation":"It is advised that the `Strict-Transport-Security` header be configured on the server"
+        },
+        "Content-Security-Policy": {
+            "alias":"CSP",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP","https://www.tenable.com/plugins/was/112551"],
+            "desc":"Missing Content Security Policy",
+            "directives":["default-src","self","domain"],
+            "risk":"low",
+            "crit_directives":[],
+            "recommendation":"To enable CSP, you need to configure your web server to return the Content-Security-Policy HTTP header."
+        },
+        "X-XSS-Protection": {
+            "alias":"X-XSS-Protection",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection","https://www.tenable.com/plugins/was/112526"],
+            "desc":"The HTTP 'X-XSS-Protection' response header is a feature of modern browsers that allows websites to control their XSS auditors.",
+            "directives":["0","1","1; mode=block","1; report=(reporting-uri)"],
+            "risk":"info",
+            "crit_directives":"0",
+            "recommendation":"Configure your web server to include an 'X-XSS-Protection' header with a value of '1; mode=block' on all pages."
+        },
+        "X-Frame-Options": {
+            "alias":"X-Frame-Options",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options","https://www.tenable.com/plugins/was/98060"],
+            "desc":"This means that this website could be at risk of a clickjacking attack.",
+            "directives":["DENY","SAMEORIGIN"],
+            "risk":"low",
+            "crit_directives":"",
+            "recommendation":"Configure your web server to include an `X-Frame-Options` header."
+        },
+        "X-Content-Type-Options": {
+            "alias":"X-Content-Type-Options",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options","https://www.tenable.com/plugins/was/112529"],
+            "desc":"This means that this website could be at risk of a Cross-Site Scripting attack.",
+            "directives":["nosniff"],
+            "risk":"low",
+            "crit_directives":"nosniff",
+            "recommendation":"Configure your web server to include an 'X-Content-Type-Options' header with a value of 'nosniff'."
+        },
+        "Expect-CT": {
+            "alias":"Expect-CT",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT","https://www.tenable.com/plugins/was/98612"],
+            "desc":"This header prevents the use of misissued certificates for the site from going unnoticed.",
+            "directives":["max-age","report-uri=(URI)","enforce"],
+            "risk":"info",
+            "crit_directives":"max-age",
+            "recommendation":"If your certificate supports SCT (Signed Certificate Timestamp) by default, the Expect-CT header is not required."
+        },
+        "Access-Control-Allow-Origin": {
+            "alias":"Access-Control-Allow-Origin",
+            "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin","https://www.tenable.com/plugins/was/98057"],
+            "desc":"Cross Origin Resource Sharing (CORS) gives modern web browsers the ability to bypass restrictions implemented by the Same Origin Policy.",
+            "directives":["null","*","origin"],
+            "risk":"low",
+            "crit_directives":["null","*"],
+            "recommendation":"The 'Access-Control-Allow-Origin' should be configured with an allowlist including only known and trusted domains to perform cross-domain requests."
+        },
+        "Referrer-Policy": {
+            "alias":"Referrer-Policy",
+            "refs":["https://www.tenable.com/plugins/was/98527","https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy"],
+            "desc":"Referrer Policy provides mechanisms to websites to restrict referrer information that browsers will be allowed to add.",
+            "directives":["no-referrer","no-referrer-when-downgrade","origin","origin-when-cross-origin","same-origin","strict-origin","strict-origin-when-cross-origin","unsafe-url"],
+            "risk":"info",
+            "crit_directives":[],
+            "recommendation":"Configure Referrer Policy on your website by adding 'Referrer-Policy' HTTP header or meta tag referrer in HTML."
+        },
+        "Content-Type":{
+          "alias":"Content-Type",
+          "refs":["https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type","https://www.tenable.com/plugins/was/98648"],
+          "desc":"The Content-Type header allows clients to find an appropriate way to render data, omission of this header can facilitate MIME sniffing attacks.",
+          "directives":["media-type","charset","boundary"],
+          "risk":"low",
+          "crit_directives":["media-type","charset","boundary"],
+          "recommendation":"Configure your web server to include an 'Content-Type' header with a correct Content-Type defined therein."
+        }
+
+
+}
