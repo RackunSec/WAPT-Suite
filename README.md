@@ -1,4 +1,4 @@
-# WAPT Suite
+# Web Application Penetration Testing Suite of Tools
 This is a collection of tools that I use during web application penetration tests. A lot of these exist elsewhere and I mainly made this repository as an exercise and I use it in most of my engagements. 
 ## What's Included
 Below is a summary of some of the included tools and documentation
