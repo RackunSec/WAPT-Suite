@@ -25,5 +25,5 @@ Below is a summary of some of the included tools and documentation
 
 ### Wordlists
 This is a set of wordlists that I have generated over the years of web application penetration testing.
- * [Wordlists](Miscellaneous/wordlists/) - Collection of all wordlists
- * [WWWordlist](Miscellaneous/wordlists/tools/wwwordlist.py) - This tool scrapes a page and generates a word list
+ * [Wordlists](Miscellaneous/Wordlists/) - Collection of all wordlists
+ * [WWWordlist](Miscellaneous/Wordlists/tools/wwwordlist.py) - This tool scrapes a page and generates a word list
