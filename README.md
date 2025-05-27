@@ -11,7 +11,7 @@ Below is a summary of some of the included tools and documentation
  * [TimedUserEnum](Enumeration/username/) - A WIP, PoC for analyzing timed server responses for valid/invalid usernames of web apps
 
 ### User-Input Testing
- * [SSRF-Lure](User-Input/ssrf-lure/) - An HTTP server to handle incoming SSRF requests
+ * [SSRF-Lure](User-Input/ssrf/) - An HTTP server to handle incoming SSRF requests
  
 ### Vuln Scanning 
  * [AutoWeb](Automation/) - Automate the first day of web application penetration test
