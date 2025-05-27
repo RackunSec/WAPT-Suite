@@ -10,12 +10,12 @@ Below is a summary of some of the included tools and documentation
  * [SSL-TLS](Enumeration/ssl-tls/) - This was just an exercise with Python for me - use SSLScan for this type of testing
  * [TimedUserEnum](Enumeration/username/) - A WIP, PoC for analyzing timed server responses for valid/invalid usernames of web apps
 
-### User-Input Testing
- * [SSRF-Lure](User-Input/ssrf/) - An HTTP server to handle incoming SSRF requests
- 
 ### Vuln Scanning 
  * [AutoWeb](Automation/) - Automate the first day of web application penetration test
  * [CORSAudit](Enumeration/cors/) - This tool checks for CORS-related security issues
+
+### User-Input Testing
+ * [SSRF-Lure](User-Input/ssrf/) - An HTTP server to handle incoming SSRF requests
 
 ### Miscellaneous
  * [UA-Util](Miscellaneous/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
