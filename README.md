@@ -23,7 +23,7 @@ Below is a summary of some of the included tools and documentation
  * [BurpExportURIs](Miscellaneous/burp) - Extract URIs from Burp Suite's project files.
 
 ### Sensitive Data Exposure
- * [Dredgeon](Miscellaneous/entropy) - Dredges through a file looking for potential web-related sensitive information.
+ * [Dredgeon](Data-Exposure/entropy) - Dredges through a file looking for potential web-related sensitive information.
 
 ### Wordlists
 This is a set of wordlists that I have generated over the years of web application penetration testing.
