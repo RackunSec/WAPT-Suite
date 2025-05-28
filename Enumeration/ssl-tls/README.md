@@ -15,12 +15,11 @@ SSL / TLS Checking Tool written in Python3. This tool will perform the following
 
 ## Getting Started
 ```
-git clone https://github.com/RackunSec/sstls-chk.git
-cd sstls-chk
+git clone https://github.com/RackunSec/WAPT-Suite.git
+cd Enumeration/sstls-chk
 chmod +x sstls-chk.py
 ./sstls-chk.py (URL|domain:port)
 ```
 
 ## TODO
 1. Add more features
-2. ~~Make a requirements.txt file~~
