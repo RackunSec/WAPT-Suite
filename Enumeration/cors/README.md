@@ -13,11 +13,11 @@ Python implementation to test CORS on a target web server.
 This tool is quite simple to use. You can now specify whether or not you want to use the Burp Suite proxy (located at 127.0.0.1:8080).
 ### Basic Usage:
 ```bash
-python3 pyCORSchk.py (URI)
+python3 pyCORSchk.py (URL)
 ```
 ### Burp Proxy Usage:
 ```bash
-python3 pyCORSchk.py --burp (URI)
+python3 pyCORSchk.py --burp (URL)
 ## OR
-python3 pyCORSchk.py (URI) --burp
+python3 pyCORSchk.py (URL) --burp
 ```
