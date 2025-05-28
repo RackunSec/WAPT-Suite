@@ -1,5 +1,7 @@
 # AutoWeb
 This tool was designed to automate the first day of a web application penetration test.
+
+**NOTE* During a heavy restructuring of the suite of tools, this tool needs some work.*
 ```
      ▄▄▄       █    ██ ▄▄▄█████▓ ▒█████   █     █░▓█████  ▄▄▄▄
     ▒████▄     ██  ▓██▒▓  ██▒ ▓▒▒██▒  ██▒▓█░ █ ░█░▓█   ▀ ▓█████▄
