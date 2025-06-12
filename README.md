@@ -16,7 +16,7 @@ Below is a summary of some of the included tools and documentation
  * [CORSAudit](Enumeration/cors/) - This tool checks for CORS-related security issues
 
 ### User-Input Testing
- * [SSRF-Lure](User-Input/ssrf/) - An HTTP server to handle incoming SSRF requests
+ * [SSRF-Snare](User-Input/ssrf/) - An HTTP server to handle incoming SSRF requests
 
 ### Miscellaneous
  * [UA-Util](Miscellaneous/ua-util.py) - HTTP header User-Agent Utility (randomizing for evasion, etc)
