@@ -1,11 +1,11 @@
 # SSRF Tools
 A collection of tools to work with SSRF vulnerabilities
-## SSRF-Lure
-SSRF-Lure is a tool that expands upon the Python3 `http.server` method to handling incoming SSRF requests for review. This tool has helped me upgrade blind SSRF to half-blind SSRF during engagements.
+## SSRF-Snare
+SSRF-Snare is a tool that expands upon the Python3 `http.server` method to handling incoming SSRF requests for review. This tool has helped me upgrade blind SSRF to half-blind SSRF during engagements.
 ### Usage
 ```
 
- SSRF-Lure
+ SSRF-Snare
  2025 @RackunSec
  
  Usage: 
@@ -14,6 +14,6 @@ SSRF-Lure is a tool that expands upon the Python3 `http.server` method to handli
    -M (HTTP method GET/POST supported)
 
  Example:
-   python3 ssrf-lure.py -M POST -L 127.0.0.1 -P 8080
+   python3 ssrf-snare.py -M POST -L 127.0.0.1 -P 8080
  
 ```
