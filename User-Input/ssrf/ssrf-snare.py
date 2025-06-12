@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-## SSRF-Lure Server
+## SSRF-Snare Server
 ## 2025 Douglas@RedSiege.com
 ##  - Catch incoming SSRF requests and review all data
 ## 
@@ -50,7 +50,7 @@ class MyGETHandler(http.server.BaseHTTPRequestHandler):
 ## How do we use this program?
 def usage():
     print("""
- SSRF-Lure
+ SSRF-Snare
  2025 @RackunSec
  
  Usage: 
@@ -59,7 +59,7 @@ def usage():
    -M (HTTP method GET/POST supported)
 
  Example:
-   python3 ssrf-lure.py -M POST -L 127.0.0.1 -P 8080 
+   python3 ssrf-snare.py -M POST -L 127.0.0.1 -P 8080 
     """)
     exit(1) ## Error out
 
