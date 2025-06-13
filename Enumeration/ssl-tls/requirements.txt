@@ -1,1 +1,1 @@
-pyopenssl
+colorama
