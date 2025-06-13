@@ -1,25 +1,22 @@
-# ssts-chk
-SSL / TLS Checking Tool written in Python3. This tool will perform the following functions:
-1. Connect the target given
-2. Analyze the secure connection SSL/TLS protocol
-3. Analyze the available ciphers for the connection
-4. Test each cipher per protocol
-5. Reconnect and analyze the certificate itself for items such as:
-  * Issuer information
-  * Subject Information
-  * Hashing / key information
-  * Alternative names
-  * Version & Serial numbers
-  * Key Valid / Expire dates
-6. I noticed while developing this tool and testing it that is has a nice side effect in that the Alternative Names in the cert produce more recon/enumeration data than I expected: subdomains and other server domains that the certificate is used! 
+# SSLyze-Reporter
+A simple Python script to parse the .json output files from [SSLyze](https://github.com/nabla-c0d3/sslyze) This application does not use the SSLyze API. The output from this script should be copy-&-paste friendly for penetration test reports.
 
 ## Getting Started
-```
+```bash
+## Download and install:
 git clone https://github.com/RackunSec/WAPT-Suite.git
-cd Enumeration/sstls-chk
-chmod +x sstls-chk.py
-./sstls-chk.py (URL|domain:port)
+cd WAPT-Suite/Enumeration/ssl-tls
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 install -r requirements.txt
+
+## Gather SSL information:
+python3 -m sslyze (TARGET) --json_out=(TARGET).json
+
+## Run the reporting tool:
+python3 sslyze-reporter.py (TARGET).json
 ```
 
 ## TODO
-1. Add more features
+1. LOADS of testing!
